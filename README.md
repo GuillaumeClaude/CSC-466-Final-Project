@@ -5,4 +5,4 @@ The Tor network is a peer to peer networking service which anonymizes user traff
 
 We are Guillaume Claude and Chase Churla and our project is based on developing methods to defend from End to End confirmation attacks.
 
-[Here is a link to our](website https://onlineacademiccommunity.uvic.ca/torlaundering/)
+[Here is a link to our] (website https://onlineacademiccommunity.uvic.ca/torlaundering/)
