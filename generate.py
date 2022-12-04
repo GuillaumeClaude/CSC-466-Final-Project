@@ -1,11 +1,11 @@
 import random
 
 # =======================================
-# PACKET PARSE
+# PACKET GENERATION PARSE
 # =======================================
 
 def parse(string, time):
-    spl = string.split(',')
+    spl = string.split()
 
     # Constant
     if spl[0].startswith('c'):

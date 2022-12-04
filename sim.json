@@ -1,0 +1,18 @@
+{
+    "time": 500.0,
+    "laundering": "delay 30.0",
+    "senders": [
+        {
+            "name": "A",
+            "destination": "E",
+            "generation": "normal 4.0",
+            "launder": true
+        },
+        {
+            "name": "B",
+            "destination": "F",
+            "generation": "constant 4.0",
+            "launder": false
+        }
+    ]
+}

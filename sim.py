@@ -1,27 +1,19 @@
-from math import sin, sqrt
+import json
 import correlate
 import generate
 import laundering
-import random
 import sys
 
-def helpMessage():
-    helpstring = """
-    USAGE:
-        <GENERATION> <LAUNDERING> <CORRELATION> <TIME>
+def addDestination(packets, destination):
+    return list(map(lambda p : {'time':p, 'destination': destination}, packets))
 
-        <TIME>:
-            A float represting time in seconds
-    """
+def fileTest():
+    f = open('sim.json')
+    j = json.load(f)
 
-    print(helpstring)
+    for s in j['senders']:
 
-def init():
-    if len(sys.argv) < 2 or sys.argv[1].startswith('h'):
-        helpMessage()
-        return
-
-    print(generate.parse(sys.argv[1], float(sys.argv[-1])))
+    f.close()
 
 # =======================================
 # TESTING
@@ -58,4 +50,3 @@ def test():
 
     print(i)
 
-init()
