@@ -9,10 +9,19 @@
             "launder": true
         },
         {
+            "name": "C",
+            "destination": "G",
+            "generation": "constant 4.0",
+            "launder": true
+        },
+        {
             "name": "B",
             "destination": "F",
             "generation": "constant 4.0",
             "launder": false
         }
+    ],
+    "destinations": [
+        "E", "F", "G"
     ]
 }

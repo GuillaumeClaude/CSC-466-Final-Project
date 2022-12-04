@@ -1,5 +1,5 @@
-import random
 from math import sqrt, sin
+import random
 
 # =======================================
 # PEARSON COR FUNCS

@@ -11,7 +11,37 @@ def fileTest():
     f = open('sim.json')
     j = json.load(f)
 
+    senders = []
+    destinations = []
+    packets_out = []
     for s in j['senders']:
+        packets = generate.parse(s['generation'], j['time'])
+        packets = addDestination(packets, s['destination'])
+        senders.append({'sender': s['name'], 'packets': packets.copy()})
+        if s['launder']:
+            packets = laundering.parse(j['laundering'], j['time'],
+                                       j['destinations'], packets)
+
+        packets_out += packets
+
+    packets_out.sort(key=lambda x : x['time'])
+
+    for d in j['destinations']:
+        #print(d)
+        #print(list(map(lambda x : x['time'], filter(lambda x : x['destination'] == d, packets_out))))
+        dpackets = list(map(lambda x : x['time'], list(filter(lambda x : x['destination'] == d, packets_out))))
+        destinations.append({'destination': d, 'packets': dpackets})
+
+    rb = correlate.calcRB(30)
+    for d in destinations:
+        print(d['destination'], 'sender correlations')
+        dhash = correlate.hash(d['packets'], 30, j['time'], rb)
+        for s in senders:
+            shash = correlate.hash(list(map(lambda l:l['time'],
+                               s['packets'])),
+                           30, j['time'], rb)
+            hd = correlate.hammingDistance(dhash, shash)
+            print('sender', s['sender'], hd)
 
     f.close()
 
@@ -50,3 +80,4 @@ def test():
 
     print(i)
 
+fileTest()
