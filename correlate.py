@@ -1,6 +1,26 @@
 from math import sqrt, sin
 import random
 
+def parse(string, time, destinations, senders):
+    spl = string.split()
+
+    # Hashing
+    if spl[0].startswith('h'):
+        rb = calcRB(int(spl[1]))
+        for d in destinations:
+            print(d['destination'], 'sender correlations')
+            dhash = hash(d['packets'], int(spl[1]), time, rb)
+            for s in senders:
+                shash = hash(list(map(lambda l:l['time'],
+                                   s['packets'])),
+                                int(spl[1]), time, rb)
+                hd = hammingDistance(dhash, shash)
+                print('sender', s['sender'], hd)
+
+    else:
+        raise Exception('unknown generator')
+
+
 # =======================================
 # PEARSON COR FUNCS
 # =======================================

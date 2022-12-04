@@ -1,27 +1,28 @@
 {
     "time": 500.0,
-    "laundering": "delay 30.0",
+    "laundering": "adddummies 8.0",
+    "correlation": "hash 300",
     "senders": [
         {
-            "name": "A",
-            "destination": "E",
+            "name": "Craig",
+            "destination": "Eric",
             "generation": "normal 4.0",
             "launder": true
         },
         {
-            "name": "C",
-            "destination": "G",
-            "generation": "constant 4.0",
+            "name": "Kyle",
+            "destination": "Graham",
+            "generation": "normal 8.0",
             "launder": true
         },
         {
-            "name": "B",
-            "destination": "F",
-            "generation": "constant 4.0",
-            "launder": false
+            "name": "Briant",
+            "destination": "Xu",
+            "generation": "normal 16.0",
+            "launder": true
         }
     ],
     "destinations": [
-        "E", "F", "G"
+        "Eric", "Graham", "Xu"
     ]
 }
