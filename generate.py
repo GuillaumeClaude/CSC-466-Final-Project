@@ -34,12 +34,12 @@ def parse(string, time):
     # Burst
     elif spl[0].startswith('b'):
         if len(spl) == 7:
-            return timeOnOff(float(spl[1]), float(spl[2]),
+            return timeBurst(float(spl[1]), float(spl[2]),
                              float(spl[3]), float(spl[4]),
                              float(spl[5]), float(spl[6]),
                              time)
         else:
-            return timeOnOff(float(spl[1]), float(spl[1])/2.0,
+            return timeBurst(float(spl[1]), float(spl[1])/2.0,
                              float(spl[2]), float(spl[2])/2.0,
                              float(spl[3]), float(spl[3])/2.0,
                              time)

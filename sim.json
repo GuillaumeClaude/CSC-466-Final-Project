@@ -1,6 +1,6 @@
 {
     "time": 500.0,
-    "laundering": "delay 8.0",
+    "laundering": "addDummies 8.0",
     "correlation": "hash 300",
     "output": "ordered",
     "senders": [
