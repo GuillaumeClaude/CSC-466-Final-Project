@@ -4,18 +4,24 @@ import random
 def parse(string, time, destinations, senders):
     spl = string.split()
 
+    results = []
+
     # Hashing
     if spl[0].startswith('h'):
         rb = calcRB(int(spl[1]))
         for d in destinations:
-            print(d['destination'], 'sender correlations')
+            nds = []
+            #print(d['destination'], 'sender correlations')
             dhash = hash(d['packets'], int(spl[1]), time, rb)
             for s in senders:
                 shash = hash(list(map(lambda l:l['time'],
                                    s['packets'])),
                                 int(spl[1]), time, rb)
                 hd = hammingDistance(dhash, shash)
-                print('sender', s['sender'], hd)
+                #print('sender', s['sender'], hd)
+                nds.append({'sender':s['sender'], 'value':hd})
+            results.append({'destination':d['destination'], 'senders': nds})
+        return results
 
     else:
         raise Exception('unknown generator')

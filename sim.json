@@ -1,12 +1,13 @@
 {
     "time": 500.0,
-    "laundering": "adddummies 8.0",
+    "laundering": "delay 8.0",
     "correlation": "hash 300",
+    "output": "ordered",
     "senders": [
         {
             "name": "Craig",
             "destination": "Eric",
-            "generation": "normal 4.0",
+            "generation": "burst 40.0 4.0 1.0",
             "launder": true
         },
         {
@@ -23,6 +24,6 @@
         }
     ],
     "destinations": [
-        "Eric", "Graham", "Xu"
+        "Eric", "Graham", "Xu", "Hey"
     ]
 }

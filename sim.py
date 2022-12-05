@@ -2,6 +2,7 @@ import json
 import correlate
 import generate
 import laundering
+import output
 import sys
 
 def addDestination(packets, destination):
@@ -30,6 +31,10 @@ def fileTest():
         dpackets = list(map(lambda x : x['time'], list(filter(lambda x : x['destination'] == d, packets_out))))
         destinations.append({'destination': d, 'packets': dpackets})
 
-    correlate.parse(j['correlation'], j['time'], destinations, senders)
+    results = correlate.parse(j['correlation'], j['time'], destinations, senders)
+
+    output.parse(j['output'], results)
 
     f.close()
+
+fileTest()
