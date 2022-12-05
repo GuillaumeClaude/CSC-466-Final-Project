@@ -45,7 +45,8 @@ def modifyTime(packet, time):
     return packet
 
 def delay(frq, std, packets, stop):
-    return list(filter(lambda x : x['time'] < stop, map(lambda h : modifyTime(h, h['time'] + random.gauss(0.2, 0.1)), packets)))
+    lst = list(filter(lambda x : x['time'] < stop, map(lambda h : modifyTime(h, h['time'] + random.gauss(0.2, 0.1)), packets)))
+    return lst
 
 def nBatch(n, packets):
     npackets = []

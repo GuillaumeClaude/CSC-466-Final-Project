@@ -1,15 +1,9 @@
 {
-    "time": 500.0,
-    "laundering": "addDummies 8.0",
-    "correlation": "hash 300",
+    "time": 10.0,
+    "laundering": "d 8.0",
+    "correlation": "hash 10",
     "output": "ordered",
     "senders": [
-        {
-            "name": "Craig",
-            "destination": "Eric",
-            "generation": "burst 40.0 4.0 1.0",
-            "launder": true
-        },
         {
             "name": "Kyle",
             "destination": "Graham",
@@ -17,13 +11,43 @@
             "launder": true
         },
         {
+            "name": "Craig",
+            "destination": "Eric",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
+            "name": "Keef",
+            "destination": "Geeble",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
+            "name": "Dirk",
+            "destination": "Hey",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
+            "name": "Garet",
+            "destination": "Alex",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
+            "name": "Chase",
+            "destination": "Guillaume",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
             "name": "Briant",
             "destination": "Xu",
-            "generation": "normal 16.0",
-            "launder": true
+            "generation": "normal 8.0",
+            "launder": false
         }
     ],
     "destinations": [
-        "Eric", "Graham", "Xu", "Hey"
+        "Graham", "Eric", "Xu", "Hey", "Guillaume", "Geeble", "Alex"
     ]
 }
