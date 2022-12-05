@@ -5,7 +5,6 @@ def parse(string, time, destinations, senders):
     spl = string.split()
 
     results = []
-    print('beforeif', destinations)
 
     # Hashing
     if spl[0].startswith('h'):
@@ -15,8 +14,6 @@ def parse(string, time, destinations, senders):
             #print(d['destination'], 'sender correlations')
             dhash = hash(d['packets'], int(spl[1]), time, rb)
             for s in senders:
-                print('beforehash', s['packets'])
-                print(len(s['packets']))
                 shash = hash(list(map(lambda l:l['time'],
                                    s['packets'])),
                                 int(spl[1]), time, rb)

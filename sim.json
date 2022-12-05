@@ -1,15 +1,9 @@
 {
-    "time": 350.0,
-    "laundering": "delay 100.0",
-    "correlation": "hash 100",
+    "time": 10.0,
+    "laundering": "d 8.0",
+    "correlation": "hash 10",
     "output": "ordered",
     "senders": [
-        {
-            "name": "Craig",
-            "destination": "Eric",
-            "generation": "normal 30.0",
-            "launder": true
-        },
         {
             "name": "Kyle",
             "destination": "Graham",
@@ -17,13 +11,43 @@
             "launder": true
         },
         {
+            "name": "Craig",
+            "destination": "Eric",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
+            "name": "Keef",
+            "destination": "Geeble",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
+            "name": "Dirk",
+            "destination": "Hey",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
+            "name": "Garet",
+            "destination": "Alex",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
+            "name": "Chase",
+            "destination": "Guillaume",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
             "name": "Briant",
             "destination": "Xu",
-            "generation": "constant 16.0",
+            "generation": "normal 8.0",
             "launder": false
         }
     ],
     "destinations": [
-        "Eric", "Graham", "Xu", "Hey"
+        "Graham", "Eric", "Xu", "Hey", "Guillaume", "Geeble", "Alex"
     ]
 }

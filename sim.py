@@ -1,16 +1,20 @@
-import json
 import correlate
+import copy
 import generate
+import json
 import laundering
+import numpy as np
 import output
 import sys
-import numpy as np
+import random
 
 def addDestination(packets, destination):
     return list(map(lambda p : {'time':p, 'destination': destination}, packets))
 
 def extractTopSender(result):
-    return sorted(result['senders'], key=lambda x : x['value'])[0]['sender']
+    senders = result['senders'].copy()
+    random.shuffle(senders) # Shuffle to prevent ORDER BIAS
+    return sorted(senders, key=lambda x : x['value'])[0]['sender']
 
 def extractSenderDestination(senders, sender):
     for s in senders:
@@ -50,23 +54,12 @@ def fileTest(j, get_output=False):
     packets_out = []
     for s in j['senders']:
         packets = generate.parse(s['generation'], j['time'])
-        print('postgen', packets)
         packets = addDestination(packets, s['destination'])
-        print(id(packets))
-        npackets = packets.copy()
-        print(id(npackets))
+        npackets = copy.deepcopy(packets)
         senders.append({'sender': s['name'], 'packets': npackets})
-        print('=====================>')
-        print(senders)
-        print('=====================')
         if s['launder']:
-            print(packets)
             packets = laundering.parse(j['laundering'], j['time'],
-                                       j['destinations'], packets.copy())
-            print('=====================>>')
-            print(packets[0])
-            print('=====================')
-            print('postparse', packets)
+                                       j['destinations'], packets)
 
         packets_out += packets
 
@@ -78,9 +71,7 @@ def fileTest(j, get_output=False):
 
     results = correlate.parse(j['correlation'], j['time'], destinations, senders)
 
-    #output.parse(j['output'], results)
-
     if get_output:
         return results
 
-nTest(20)
+nTest(50)
