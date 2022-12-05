@@ -50,11 +50,23 @@ def fileTest(j, get_output=False):
     packets_out = []
     for s in j['senders']:
         packets = generate.parse(s['generation'], j['time'])
+        print('postgen', packets)
         packets = addDestination(packets, s['destination'])
-        senders.append({'sender': s['name'], 'packets': packets.copy()})
+        print(id(packets))
+        npackets = packets.copy()
+        print(id(npackets))
+        senders.append({'sender': s['name'], 'packets': npackets})
+        print('=====================>')
+        print(senders)
+        print('=====================')
         if s['launder']:
+            print(packets)
             packets = laundering.parse(j['laundering'], j['time'],
-                                       j['destinations'], packets)
+                                       j['destinations'], packets.copy())
+            print('=====================>>')
+            print(packets[0])
+            print('=====================')
+            print('postparse', packets)
 
         packets_out += packets
 

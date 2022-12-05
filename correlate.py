@@ -5,6 +5,7 @@ def parse(string, time, destinations, senders):
     spl = string.split()
 
     results = []
+    print('beforeif', destinations)
 
     # Hashing
     if spl[0].startswith('h'):
@@ -14,12 +15,13 @@ def parse(string, time, destinations, senders):
             #print(d['destination'], 'sender correlations')
             dhash = hash(d['packets'], int(spl[1]), time, rb)
             for s in senders:
+                print('beforehash', s['packets'])
+                print(len(s['packets']))
                 shash = hash(list(map(lambda l:l['time'],
                                    s['packets'])),
                                 int(spl[1]), time, rb)
                 hd = hammingDistance(dhash, shash)
                 #print('sender', s['sender'], hd)
-                print(s)
                 nds.append({'sender':s['sender'], 'value':hd})
             results.append({'destination':d['destination'], 'senders': nds})
         return results
@@ -54,10 +56,6 @@ def timeWindows(packets, N, time):
     windows = [0]*N
 
     for packet in packets:
-        print(packet)
-        print(packet//tw)
-        print(int(packet//tw))
-        print(len(windows))
         windows[int(packet//tw)] = 1 + windows[int(packet//tw)]
     return windows
 
