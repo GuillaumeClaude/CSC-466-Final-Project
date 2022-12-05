@@ -19,6 +19,7 @@ def parse(string, time, destinations, senders):
                                 int(spl[1]), time, rb)
                 hd = hammingDistance(dhash, shash)
                 #print('sender', s['sender'], hd)
+                print(s)
                 nds.append({'sender':s['sender'], 'value':hd})
             results.append({'destination':d['destination'], 'senders': nds})
         return results
@@ -53,6 +54,10 @@ def timeWindows(packets, N, time):
     windows = [0]*N
 
     for packet in packets:
+        print(packet)
+        print(packet//tw)
+        print(int(packet//tw))
+        print(len(windows))
         windows[int(packet//tw)] = 1 + windows[int(packet//tw)]
     return windows
 
