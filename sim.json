@@ -1,36 +1,12 @@
 {
     "time": 10.0,
-    "laundering": "d 8.0",
-    "correlation": "hash 10",
+    "laundering": "delay 8.0",
+    "correlation": "hash 40",
     "output": "ordered",
     "senders": [
         {
             "name": "Kyle",
             "destination": "Graham",
-            "generation": "normal 8.0",
-            "launder": true
-        },
-        {
-            "name": "Craig",
-            "destination": "Eric",
-            "generation": "normal 8.0",
-            "launder": true
-        },
-        {
-            "name": "Keef",
-            "destination": "Geeble",
-            "generation": "normal 8.0",
-            "launder": true
-        },
-        {
-            "name": "Dirk",
-            "destination": "Hey",
-            "generation": "normal 8.0",
-            "launder": true
-        },
-        {
-            "name": "Garet",
-            "destination": "Alex",
             "generation": "normal 8.0",
             "launder": true
         },
@@ -41,13 +17,31 @@
             "launder": true
         },
         {
-            "name": "Briant",
+            "name": "Spongebob",
+            "destination": "Patrick",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
+            "name": "Golem",
+            "destination": "Smegal",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
+            "name": "Derrick",
+            "destination": "Andrea",
+            "generation": "normal 8.0",
+            "launder": true
+        },
+        {
+            "name": "Mary",
             "destination": "Xu",
             "generation": "normal 8.0",
-            "launder": false
+            "launder": true
         }
     ],
     "destinations": [
-        "Graham", "Eric", "Xu", "Hey", "Guillaume", "Geeble", "Alex"
+        "Graham", "Xu", "Guillaume", "Claire", "Smegal", "Andrea", "Patrick"
     ]
 }

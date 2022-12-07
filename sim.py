@@ -71,7 +71,12 @@ def fileTest(j, get_output=False):
 
     results = correlate.parse(j['correlation'], j['time'], destinations, senders)
 
+    output.parse(j['output'], results)
+
     if get_output:
         return results
 
-nTest(50)
+f = open('sim.json')
+j = json.load(f)
+fileTest(j)
+f.close()
