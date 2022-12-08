@@ -6,6 +6,9 @@ def parse(string, results):
         print(results)
         return
 
+    if spl[0].startswith('n'):
+        return
+
     # Ordered
     if spl[0].startswith('o'):
         for d in results:

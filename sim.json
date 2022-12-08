@@ -1,15 +1,9 @@
 {
-    "time": 10.0,
-    "laundering": "delay 8.0",
-    "correlation": "hash 40",
-    "output": "ordered",
+    "time": 100.0,
+    "laundering": "batch 10",
+    "correlation": "hash 60",
+    "output": "none",
     "senders": [
-        {
-            "name": "Kyle",
-            "destination": "Graham",
-            "generation": "normal 8.0",
-            "launder": true
-        },
         {
             "name": "Chase",
             "destination": "Guillaume",
@@ -19,29 +13,59 @@
         {
             "name": "Spongebob",
             "destination": "Patrick",
-            "generation": "normal 8.0",
+            "generation": "burst 20.0 10.0 1.0",
             "launder": true
         },
         {
             "name": "Golem",
             "destination": "Smegal",
-            "generation": "normal 8.0",
+            "generation": "onoff 8.0 1.0",
             "launder": true
         },
         {
             "name": "Derrick",
             "destination": "Andrea",
-            "generation": "normal 8.0",
+            "generation": "constant 8.0",
             "launder": true
+        },
+        {
+            "name": "Nabeless",
+            "destination": "Graham",
+            "generation": "normal 8.0",
+            "launder": false
+        },
+        {
+            "name": "Mameless",
+            "destination": "Graham",
+            "generation": "normal 8.0",
+            "launder": false
+        },
+        {
+            "name": "NamelJss",
+            "destination": "Graham",
+            "generation": "normal 8.0",
+            "launder": false
+        },
+        {
+            "name": "Xameless",
+            "destination": "Graham",
+            "generation": "burst 20.0 10.0 1.0",
+            "launder": false
+        },
+        {
+            "name": "Nameless",
+            "destination": "Graham",
+            "generation": "onoff 8.0 1.0",
+            "launder": false
         },
         {
             "name": "Mary",
             "destination": "Xu",
             "generation": "normal 8.0",
-            "launder": true
+            "launder": false
         }
     ],
     "destinations": [
-        "Graham", "Xu", "Guillaume", "Claire", "Smegal", "Andrea", "Patrick"
+        "Guillaume", "Patrick", "Smegal", "Andrea"
     ]
 }

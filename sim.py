@@ -7,6 +7,15 @@ import numpy as np
 import output
 import sys
 import random
+import string
+
+def generateSenderRec(sender):
+    N = 20
+    nsender = sender.copy()
+    nsender['name'] = ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
+    nsender['destination'] = ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
+    return nsender
+
 
 def addDestination(packets, destination):
     return list(map(lambda p : {'time':p, 'destination': destination}, packets))
@@ -27,9 +36,7 @@ def isCorrelated(senders, flow):
     else:
         return 0
 
-def nTest(n):
-    f = open('sim.json')
-    j = json.load(f)
+def nTest(j, n, tack):
     nres = []
     for x in range(0,n):
         nres.append(fileTest(j, get_output=True))
@@ -42,10 +49,9 @@ def nTest(n):
     print(tot)
 
     nf = open('sim.csv', 'a')
-    nf.write(','.join(tot)+',\n')
+    nf.write(','.join(tot)+','+str(tack)+',\n')
     nf.close()
 
-    f.close()
 
 def fileTest(j, get_output=False):
 
@@ -78,5 +84,10 @@ def fileTest(j, get_output=False):
 
 f = open('sim.json')
 j = json.load(f)
-fileTest(j)
+for x in range(0, 10):
+#     for y in range(0, 10):
+#         j['senders'].append(generateSenderRec(random.choice(j['senders'][7:10])))
+
+    j['time'] = 10+(10*x)
+    nTest(j, 40, 10+(10*x))
 f.close()
